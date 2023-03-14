@@ -2,21 +2,21 @@
     <string name="app_name">Compendium</string>
     <string name="action_settings">Ustawienia</string>
     <!-- Strings used for fragments for navigation -->
-    <string name="first_fragment_label" translatable="false">First Fragment</string>
-    <string name="second_fragment_label" translatable="false">Second Fragment</string>
+    <string name="first_fragment_label" >First Fragment</string>
+    <string name="second_fragment_label" >Second Fragment</string>
     <string name="next">Następny</string>
     <string name="previous">Poprzedni</string>
 
     <string name="main_title_text">Kompendium</string>
-    <string name="hello_second_fragment" translatable="false">Hello second fragment. Arg: %1$s</string>
+    <string name="hello_second_fragment" >Hello second fragment. Arg: %1$s</string>
     <string name="return_label">Powrót</string>
 
     <!-- Podpisy przycisków - strona główna -->
     <string name="author_info_label">O autorze</string>
-    <string name="basic_info_label" translatable="false">Informacje ogólne</string>
-    <string name="characters_label" translatable="false">Postacie</string>
-    <string name="locations_label" translatable="false">Lokacje</string>
-    <string name="trivias_label" translatable="false">Ciekawostki</string>
+    <string name="basic_info_label" >Informacje ogólne</string>
+    <string name="characters_label" >Postacie</string>
+    <string name="locations_label" >Lokacje</string>
+    <string name="trivias_label" >Ciekawostki</string>
     <string name="about_label">O aplikacji</string>
 
     <!-- Podpisy przycisków - postaci -->
@@ -25,8 +25,10 @@
     <string name="character3_label">Antyvir</string>
     <string name="cgaracter4_label">Norton</string>
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment" translatable="false">Hello blank fragment</string>
-    <string name="author_link" translatable="false">https://www.jonathanocean.pl/</string>
-    <string name="go_to_page_label" translatable="false">Odwiedź stronę</string>
+    <string name="hello_blank_fragment" >Hello blank fragment</string>
+    <string name="author_link" >https://www.jonathanocean.pl/</string>
+    <string name="go_to_page_label" >Odwiedź stronę</string>
+    <string name="author_fragment_title_text">O autorze</string>
+    <string name="open_main_page_button_text">Otwórz stronę domową</string>
     <!--    <string name="jonathan_ocean_logo_desc">Jonathan Ocean\'s logo</string>-->
 </resources>

@@ -1,12 +1,16 @@
 package com.example.compendium;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -60,5 +64,21 @@ public class AuthorFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_author, container, false);
+
     }
+
+    @Override
+    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        Button homePageButton = view.findViewById(R.id.openMainPageButton);
+
+        homePageButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.jonathanocean.pl/"));
+                getContext().startActivity(Intent.createChooser(intent, "Choose browser"));// Choose browser is arbitrary :)
+            }
+        });
+    }
+
 }
