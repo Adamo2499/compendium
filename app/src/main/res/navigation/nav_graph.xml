@@ -12,17 +12,52 @@
         tools:layout="@layout/fragment_first">
 
         <action
-            android:id="@+id/action_FirstFragment_to_SecondFragment"
-            app:destination="@id/SecondFragment" />
+            android:id="@+id/action_FirstFragment_to_charactersFragment"
+            app:destination="@id/charactersFragment" />
+        <action
+            android:id="@+id/action_FirstFragment_to_locationsFragment"
+            app:destination="@id/locationsFragment" />
+        <action
+            android:id="@+id/action_FirstFragment_to_triviasFragment"
+            app:destination="@id/triviasFragment" />
+        <action
+            android:id="@+id/action_FirstFragment_to_authorFragment"
+            app:destination="@id/authorFragment" />
     </fragment>
     <fragment
-        android:id="@+id/SecondFragment"
-        android:name="com.example.compendium.SecondFragment"
-        android:label="@string/second_fragment_label"
-        tools:layout="@layout/fragment_second">
-
+        android:id="@+id/charactersFragment"
+        android:name="com.example.compendium.CharactersFragment"
+        android:label="fragment_characters"
+        tools:layout="@layout/fragment_characters" >
         <action
-            android:id="@+id/action_SecondFragment_to_FirstFragment"
+            android:id="@+id/action_charactersFragment_to_FirstFragment"
+            app:destination="@id/FirstFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/locationsFragment"
+        android:name="com.example.compendium.LocationsFragment"
+        android:label="fragment_locations"
+        tools:layout="@layout/fragment_locations" >
+        <action
+            android:id="@+id/action_locationsFragment_to_FirstFragment"
+            app:destination="@id/FirstFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/authorFragment"
+        android:name="com.example.compendium.AuthorFragment"
+        android:label="fragment_author"
+        tools:layout="@layout/fragment_author" >
+        <action
+            android:id="@+id/action_authorFragment_to_FirstFragment"
+            app:destination="@id/FirstFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/triviasFragment"
+        android:name="com.example.compendium.TriviasFragment"
+        android:label="fragment_trivias"
+        tools:layout="@layout/fragment_trivias" >
+        <action
+            android:id="@+id/action_triviasFragment_to_FirstFragment"
             app:destination="@id/FirstFragment" />
     </fragment>
 </navigation>
