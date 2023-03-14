@@ -13,12 +13,11 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
+        android:layout_marginTop="492dp"
         android:text="@string/open_main_page_button_text"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.751" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/author_fragment_title"
@@ -32,5 +31,29 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageView_photo"
+        android:layout_width="146dp"
+        android:layout_height="212dp"
+        android:layout_marginTop="92dp"
+        android:src="@drawable/jonthanoceanphoto"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.611"
+        app:layout_constraintStart_toEndOf="@+id/imageView_logo"
+        app:layout_constraintTop_toTopOf="parent"
+        android:contentDescription="@string/jonathan_ocean_logo_desc" />
+
+    <ImageView
+        android:id="@+id/imageView_logo"
+        android:layout_width="147dp"
+        android:layout_height="213dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="92dp"
+        android:src="@drawable/jonathanoceangrey"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="ImageContrastCheck"
+        android:contentDescription="@string/jonathan_ocean_photo_desc" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
