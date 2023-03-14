@@ -1,0 +1,27 @@
+<resources>
+    <string name="app_name">Compendium</string>
+    <string name="action_settings">Ustawienia</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label" translatable="false">First Fragment</string>
+    <string name="second_fragment_label" translatable="false">Second Fragment</string>
+    <string name="next">Następny</string>
+    <string name="previous">Poprzedni</string>
+
+    <string name="main_title_text">Kompendium</string>
+    <string name="hello_second_fragment" translatable="false">Hello second fragment. Arg: %1$s</string>
+    <string name="return_label">Powrót</string>
+
+    <!-- Podpisy przycisków - strona główna -->
+    <string name="author_info_label">O autorze</string>
+    <string name="basic_info_label" translatable="false">Informacje ogólne</string>
+    <string name="characters_label" translatable="false">Postacie</string>
+    <string name="locations_label" translatable="false">Lokacje</string>
+    <string name="trivias_label" translatable="false">Ciekawostki</string>
+    <string name="about_label">O aplikacji</string>
+
+    <!-- Podpisy przycisków - postaci -->
+    <string name="character1_label">Kapral Lin</string>
+    <string name="character2_label">DOS</string>
+    <string name="character3_label">Antyvir</string>
+    <string name="cgaracter4_label">Norton</string>
+</resources>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Ustawienia</string>
+    <string name="action_settings">Ustawienia</string>
+    <string name="next">Następny</string>
+    <string name="previous">Poprzedni</string>
+    <string name="main_title_text">Kompendium</string>
+    <string name="return_label">Powrót</string>
+    <string name="author_info_label">O autorze</string>
+    <string name="about_label">O aplikacji</string>
+    <string name="character1_label">Kapral Lin</string>
+    <string name="character2_label">DOS</string>
+    <string name="character3_label">Antyvir</string>
+    <string name="cgaracter4_label">Norton</string>
+</resources>
