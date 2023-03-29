@@ -7,6 +7,15 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import org.w3c.dom.Text;
+
+import java.util.List;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -23,6 +32,10 @@ public class CharactersFragment extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+
+    ListView charactersListView;
+    TextView chractersTextView;
+    String[] charactersList;
 
     public CharactersFragment() {
         // Required empty public constructor
@@ -49,10 +62,14 @@ public class CharactersFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
+        charactersListView = (ListView) this.getView().findViewById(R.id.characters_listview);
+        chractersTextView = (TextView) this.getView().findViewById(R.id.characters_textview);
+
+        charactersList = getResources().getStringArray(R.array.characters_names);
+        final ArrayAdapter<String> adapter = new ArrayAdapter<String>(this.getContext(),
+                android.R.layout.simple_list_item_1, android.R.id.text1, charactersList);
+        charactersListView.setAdapter(adapter);
+
     }
 
     @Override

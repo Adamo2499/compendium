@@ -1,58 +1,46 @@
 package com.example.compendium;
 
+import static android.content.ContentValues.TAG;
+
+import android.content.Intent;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.ListView;
+import android.widget.TextView;
+import android.widget.Toast;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link TriviasFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
+import com.example.compendium.databinding.FragmentTriviasBinding;
+
+import org.w3c.dom.Text;
+
 public class TriviasFragment extends Fragment {
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
+    private FragmentTriviasBinding binding;
 
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
+//    ListView trivasList;
+//    String trivias[] = {"Trivia1","Trivia2","Trivia3"};
+
 
     public TriviasFragment() {
         // Required empty public constructor
     }
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment TriviasFragment.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static TriviasFragment newInstance(String param1, String param2) {
-        TriviasFragment fragment = new TriviasFragment();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }
-
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
+        binding = FragmentTriviasBinding.inflate(getLayoutInflater());
+        View view = binding.getRoot();
     }
 
     @Override
@@ -60,5 +48,39 @@ public class TriviasFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_trivias, container, false);
+    }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        Button startAISiri = (Button) view.findViewById(R.id.start_aisiri_button);
+        Button stopAISiri = (Button) view.findViewById(R.id.stop_aisiri_button);
+        Intent AISiriIntent = new Intent(String.valueOf(AISiriService.class));
+
+//        if (binding != null && binding.startAisiriButton != null) {
+//
+//        } else {
+//            Log.e(TAG, "Binding object or startAisiriButton is null");
+//        }
+
+        binding.startAisiriButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Log.e(TAG, "AI Siri Start button clicked!");
+                startAISiri.setVisibility(View.INVISIBLE);
+                startActivity(AISiriIntent);
+                stopAISiri.setVisibility(View.VISIBLE);
+            }
+        });
+
+        binding.stopAisiriButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Log.e(TAG, "AI Siri Stop button clicked!");
+                getActivity().finish();
+                startAISiri.setVisibility(View.VISIBLE);
+                stopAISiri.setVisibility(View.INVISIBLE);
+            }
+        });
     }
 }
