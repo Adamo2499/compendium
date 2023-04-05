@@ -1,5 +1,7 @@
 package com.example.compendium;
 
+import android.content.Context;
+import android.location.LocationManager;
 import android.os.Bundle;
 
 import com.google.android.material.snackbar.Snackbar;

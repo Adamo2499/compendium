@@ -15,9 +15,6 @@
             android:id="@+id/action_FirstFragment_to_charactersFragment"
             app:destination="@id/charactersFragment" />
         <action
-            android:id="@+id/action_FirstFragment_to_locationsFragment"
-            app:destination="@id/locationsFragment" />
-        <action
             android:id="@+id/action_FirstFragment_to_triviasFragment"
             app:destination="@id/triviasFragment" />
         <action
@@ -31,15 +28,6 @@
         tools:layout="@layout/fragment_characters" >
         <action
             android:id="@+id/action_charactersFragment_to_FirstFragment"
-            app:destination="@id/FirstFragment" />
-    </fragment>
-    <fragment
-        android:id="@+id/locationsFragment"
-        android:name="com.example.compendium.LocationsFragment"
-        android:label="fragment_locations"
-        tools:layout="@layout/fragment_locations" >
-        <action
-            android:id="@+id/action_locationsFragment_to_FirstFragment"
             app:destination="@id/FirstFragment" />
     </fragment>
     <fragment
