@@ -12,23 +12,11 @@
         tools:layout="@layout/fragment_first">
 
         <action
-            android:id="@+id/action_FirstFragment_to_charactersFragment"
-            app:destination="@id/charactersFragment" />
-        <action
             android:id="@+id/action_FirstFragment_to_triviasFragment"
             app:destination="@id/triviasFragment" />
         <action
             android:id="@+id/action_FirstFragment_to_authorFragment"
             app:destination="@id/authorFragment" />
-    </fragment>
-    <fragment
-        android:id="@+id/charactersFragment"
-        android:name="com.example.compendium.CharactersFragment"
-        android:label="fragment_characters"
-        tools:layout="@layout/fragment_characters" >
-        <action
-            android:id="@+id/action_charactersFragment_to_FirstFragment"
-            app:destination="@id/FirstFragment" />
     </fragment>
     <fragment
         android:id="@+id/authorFragment"
