@@ -13,9 +13,9 @@ import androidx.fragment.app.Fragment;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.fragment.NavHostFragment;
+import com.example.compendium.BuildConfig;
 
 import com.example.compendium.databinding.FragmentFirstBinding;
-
 public class FirstFragment extends Fragment {
 
     private FragmentFirstBinding binding;
@@ -33,17 +33,6 @@ public class FirstFragment extends Fragment {
 
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-
-        binding.appInfoButton.setOnClickListener(new View.OnClickListener() {
-            Context context = getContext();
-            CharSequence text = "Wersja aplikacji: 1.0 \n © Adam Bieszk 2023";
-            int duration = Toast.LENGTH_LONG;
-            @Override
-            public void onClick(View view) {
-                Toast toast = Toast.makeText(context,text,duration);
-                toast.show();
-            }
-        });
 
         binding.authorInfoButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -70,6 +59,26 @@ public class FirstFragment extends Fragment {
                 NavHostFragment.findNavController(FirstFragment.this).navigate(R.id.action_FirstFragment_to_triviasFragment);
             }
         });
+
+        binding.appExtraOptionsButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
+
+        binding.appInfoButton.setOnClickListener(new View.OnClickListener() {
+            final Context context = getContext();
+            final CharSequence text = "Wersja aplikacji:"+BuildConfig.VERSION_NAME+" \n © Adam Bieszk 2023";
+
+            final int duration = Toast.LENGTH_LONG;
+            @Override
+            public void onClick(View view) {
+                Toast toast = Toast.makeText(context,text,duration);
+                toast.show();
+            }
+        });
+
     }
 
     @Override
