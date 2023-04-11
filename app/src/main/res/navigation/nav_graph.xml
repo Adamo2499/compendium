@@ -17,6 +17,15 @@
         <action
             android:id="@+id/action_FirstFragment_to_authorFragment"
             app:destination="@id/authorFragment" />
+        <action
+            android:id="@+id/action_FirstFragment_to_charactersFragment"
+            app:destination="@id/charactersFragment" />
+        <action
+            android:id="@+id/action_FirstFragment_to_extraOptionsFragment"
+            app:destination="@id/extraOptionsFragment" />
+        <action
+            android:id="@+id/action_FirstFragment_to_locationsFragment"
+            app:destination="@id/locationsFragment" />
     </fragment>
     <fragment
         android:id="@+id/authorFragment"
@@ -34,6 +43,33 @@
         tools:layout="@layout/fragment_trivias" >
         <action
             android:id="@+id/action_triviasFragment_to_FirstFragment"
+            app:destination="@id/FirstFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/charactersFragment"
+        android:name="com.example.compendium.CharactersFragment"
+        android:label="fragment_characters"
+        tools:layout="@layout/fragment_characters" >
+        <action
+            android:id="@+id/action_charactersFragment_to_FirstFragment"
+            app:destination="@id/FirstFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/extraOptionsFragment"
+        android:name="com.example.compendium.ExtraOptionsFragment"
+        android:label="fragment_extra_options"
+        tools:layout="@layout/fragment_extra_options" >
+        <action
+            android:id="@+id/action_extraOptionsFragment_to_FirstFragment"
+            app:destination="@id/FirstFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/locationsFragment"
+        android:name="com.example.compendium.LocationsFragment"
+        android:label="fragment_locations"
+        tools:layout="@layout/fragment_locations" >
+        <action
+            android:id="@+id/action_locationsFragment_to_FirstFragment"
             app:destination="@id/FirstFragment" />
     </fragment>
 </navigation>
