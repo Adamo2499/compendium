@@ -1,6 +1,5 @@
 package com.example.compendium;
 
-import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -10,15 +9,12 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
-import androidx.navigation.NavController;
-import androidx.navigation.Navigation;
 import androidx.navigation.fragment.NavHostFragment;
-import com.example.compendium.BuildConfig;
+import com.example.compendium.databinding.FragmentMainBinding;
 
-import com.example.compendium.databinding.FragmentFirstBinding;
-public class FirstFragment extends Fragment {
+public class MainFragment extends Fragment {
 
-    private FragmentFirstBinding binding;
+    private FragmentMainBinding binding;
 
     @Override
     public View onCreateView(
@@ -26,7 +22,7 @@ public class FirstFragment extends Fragment {
             Bundle savedInstanceState
     ) {
 
-        binding = FragmentFirstBinding.inflate(inflater, container, false);
+        binding = FragmentMainBinding.inflate(inflater, container, false);
         return binding.getRoot();
 
     }
@@ -37,33 +33,41 @@ public class FirstFragment extends Fragment {
         binding.authorInfoButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                NavHostFragment.findNavController(FirstFragment.this).navigate(R.id.action_FirstFragment_to_authorFragment);
+                NavHostFragment.findNavController(MainFragment.this).navigate(R.id.action_FirstFragment_to_authorFragment);
+            }
+        });
+
+        binding.basicInfoButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                NavHostFragment.findNavController(MainFragment.this).navigate(R.id.action_FirstFragment_to_basicInfoFragment);
             }
         });
 
         binding.charactersInfoButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //NavHostFragment.findNavController(FirstFragment.this).navigate(R.id.action_FirstFragment_to_charactersFragment);
+                NavHostFragment.findNavController(MainFragment.this).navigate(R.id.action_FirstFragment_to_charactersFragment);
             }
         });
 
         binding.locationsInfoButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                NavHostFragment.findNavController(MainFragment.this).navigate(R.id.action_FirstFragment_to_locationsFragment);
             }
         });
         binding.triviasButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                NavHostFragment.findNavController(FirstFragment.this).navigate(R.id.action_FirstFragment_to_triviasFragment);
+                NavHostFragment.findNavController(MainFragment.this).navigate(R.id.action_FirstFragment_to_triviasFragment);
             }
         });
 
         binding.appExtraOptionsButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                NavHostFragment.findNavController(MainFragment.this).navigate(R.id.action_FirstFragment_to_extraOptionsFragment);
             }
         });
 

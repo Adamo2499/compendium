@@ -7,9 +7,9 @@
 
     <fragment
         android:id="@+id/FirstFragment"
-        android:name="com.example.compendium.FirstFragment"
+        android:name="com.example.compendium.MainFragment"
         android:label="@string/first_fragment_label"
-        tools:layout="@layout/fragment_first">
+        tools:layout="@layout/fragment_main">
 
         <action
             android:id="@+id/action_FirstFragment_to_triviasFragment"
@@ -26,6 +26,9 @@
         <action
             android:id="@+id/action_FirstFragment_to_locationsFragment"
             app:destination="@id/locationsFragment" />
+        <action
+            android:id="@+id/action_FirstFragment_to_basicInfoFragment"
+            app:destination="@id/basicInfoFragment" />
     </fragment>
     <fragment
         android:id="@+id/authorFragment"
@@ -56,9 +59,9 @@
     </fragment>
     <fragment
         android:id="@+id/extraOptionsFragment"
-        android:name="com.example.compendium.ExtraOptionsFragment"
+        android:name="com.example.compendium.ExtrasFragment"
         android:label="fragment_extra_options"
-        tools:layout="@layout/fragment_extra_options" >
+        tools:layout="@layout/fragment_extras" >
         <action
             android:id="@+id/action_extraOptionsFragment_to_FirstFragment"
             app:destination="@id/FirstFragment" />
@@ -70,6 +73,15 @@
         tools:layout="@layout/fragment_locations" >
         <action
             android:id="@+id/action_locationsFragment_to_FirstFragment"
+            app:destination="@id/FirstFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/basicInfoFragment"
+        android:name="com.example.compendium.BasicInfoFragment"
+        android:label="fragment_basic_info"
+        tools:layout="@layout/fragment_basic_info" >
+        <action
+            android:id="@+id/action_basicInfoFragment_to_FirstFragment"
             app:destination="@id/FirstFragment" />
     </fragment>
 </navigation>
