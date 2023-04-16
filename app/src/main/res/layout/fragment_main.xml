@@ -21,11 +21,11 @@
         android:id="@+id/author_info_button"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="43dp"
+        android:layout_marginTop="48dp"
         android:layout_weight="1"
         android:text="@string/author_info_label"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.477"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textview_main_title" />
 
@@ -33,10 +33,10 @@
         android:id="@+id/basic_info_button"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="28dp"
+        android:layout_marginTop="32dp"
         android:text="@string/basic_info_label"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.511"
+        app:layout_constraintHorizontal_bias="0.477"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/author_info_button" />
 
@@ -44,10 +44,10 @@
         android:id="@+id/characters_info_button"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="47dp"
+        android:layout_marginTop="36dp"
         android:text="@string/characters_label"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.477"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/basic_info_button" />
 
@@ -55,10 +55,10 @@
         android:id="@+id/locations_info_button"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="42dp"
+        android:layout_marginTop="40dp"
         android:text="@string/locations_label"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.477"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/characters_info_button" />
 
@@ -81,19 +81,20 @@
         android:text="@string/extra_options_label"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.48"
+        app:layout_constraintHorizontal_bias="0.477"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/trivias_button"
-        app:layout_constraintVertical_bias="0.964" />
+        app:layout_constraintVertical_bias="1.0" />
 
     <Button
         android:id="@+id/app_info_button"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="132dp"
+        android:layout_marginBottom="40dp"
         android:text="@string/about_label"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/trivias_button" />
+        app:layout_constraintHorizontal_bias="0.477"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

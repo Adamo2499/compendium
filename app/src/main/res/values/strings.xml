@@ -2,12 +2,12 @@
     <string name="app_name">Compendium</string>
     <string name="action_settings">Ustawienia</string>
     <!-- Strings used for fragments for navigation -->
-    <string name="first_fragment_label">Strona główna</string>
+    <string name="main_fragment_label">Strona główna</string>
+    <string name="author_fragment_label">O autorze</string>
     <string name="next">Następny</string>
     <string name="previous">Poprzedni</string>
 
     <string name="main_title_text">Kompendium</string>
-    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
     <string name="return_label">Powrót</string>
 
     <!-- Podpisy przycisków - strona główna -->
