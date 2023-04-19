@@ -4,66 +4,82 @@ import android.app.Service;
 import android.content.Intent;
 import android.os.Handler;
 import android.os.IBinder;
+import android.util.Log;
 import android.widget.Toast;
 
+import androidx.annotation.Nullable;
+
+import java.nio.charset.Charset;
 import java.util.Random;
 
 public class AISiriService extends Service {
-
+    private boolean isRunning;
     private Handler handler;
     private Runnable runnable;
-    private Random random;
-
-    @Override
-    public void onCreate() {
-        super.onCreate();
-        handler = new Handler();
-        random = new Random();
-        runnable = new Runnable() {
-            @Override
-            public void run() {
-                showToast();
-                handler.postDelayed(this, getRandomInterval());
-            }
-        };
-    }
 
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
+        handler = new Handler();
+        runnable = new Runnable() {
+            @Override
+            public void run() {
+                String rngString = getAlphaNumericString(11);
+                Log.e("Service", "Service is running...");
+                Log.e("ServiceString",rngString);
+                Toast.makeText(AISiriService.this, "Wiadomość od AISiri:\n"+rngString, Toast.LENGTH_SHORT).show();
+                handler.postDelayed(this, 3000);
+            }
+        };
         handler.post(runnable);
+        isRunning = true;
         return START_STICKY;
-    }
-
-    public AISiriService() {
-    }
-
-    @Override
-    public IBinder onBind(Intent intent) {
-        return null;
     }
 
     @Override
     public void onDestroy() {
         super.onDestroy();
+        isRunning = false;
+        Log.e("Service", "Service stopped");
+        Toast.makeText(AISiriService.this, "Service stopped", Toast.LENGTH_SHORT).show();
         handler.removeCallbacks(runnable);
     }
 
-    private int getRandomInterval() {
-        return random.nextInt(5000) + 1000; // Random interval between 1 to 5 seconds
+    @Nullable
+    @Override
+    public IBinder onBind(Intent intent) {
+        return null;
     }
 
-    private void showToast() {
-        String message = generateRandomText(5,12);
-        Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
-    }
+    static String getAlphaNumericString(int n)
+    {
 
-    public static String generateRandomText(int minLength, int maxLength) {
-        Random random = new Random();
-        int length = random.nextInt(maxLength - minLength + 1) + minLength; // Random length between minLength and maxLength
-        StringBuilder sb = new StringBuilder();
-        for (int i = 0; i < length; i++) {
-            sb.append((char)(random.nextInt(26) + 'a')); // Random lowercase letter
+        // length is bounded by 256 Character
+        byte[] array = new byte[256];
+        new Random().nextBytes(array);
+
+        String randomString
+                = new String(array, Charset.forName("UTF-8"));
+
+        // Create a StringBuffer to store the result
+        StringBuffer r = new StringBuffer();
+
+        // Append first 20 alphanumeric characters
+        // from the generated random String into the result
+        for (int k = 0; k < randomString.length(); k++) {
+
+            char ch = randomString.charAt(k);
+
+            if (((ch >= 'a' && ch <= 'z')
+                    || (ch >= 'A' && ch <= 'Z')
+                    || (ch >= '0' && ch <= '9'))
+                    && (n > 0)) {
+
+                r.append(ch);
+                n--;
+            }
         }
-        return sb.toString();
+
+        // return the resultant string
+        return r.toString();
     }
 }

@@ -5,16 +5,13 @@ import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.constraintlayout.helper.widget.Carousel;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.Navigation;
-import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Adapter;
 import android.widget.Button;
 import android.widget.TextView;
 
@@ -73,7 +70,7 @@ public class CharactersFragment extends Fragment {
     public void showCharacters(){
         dbHandler = new DBHandler(getContext());
         bookCharacters = dbHandler.readBookCharacters();
-        TextView character1TextView = getView().findViewById(R.id.character1);
+        TextView character1TextView = getView().findViewById(R.id.charactersDescriptions);
         String characterDesc = "";
         for (int i = 0; i < bookCharacters.size(); i++) {
             BookCharacter bookCharacter = bookCharacters.get(i);
@@ -86,5 +83,7 @@ public class CharactersFragment extends Fragment {
         }
 //        character1TextView.setText(bookCharacters.get(0).getName());
         character1TextView.setText(characterDesc);
+
+
     }
 }
