@@ -37,8 +37,11 @@
     <!-- Start / Stop AISiri Service   -->
     <string name="start_service_button_label">Start</string>
     <string name="stop_service_button_label">Stop</string>
+    <!--  Lokalizacja (GPS)  -->
     <string name="current_location_label">Obecna lokacja</string>
     <string name="getLocationButtonLabel">Pokaż obecną lokalizację</string>
+
+    <string name="gallery">Galeria</string>
 
 
 </resources>

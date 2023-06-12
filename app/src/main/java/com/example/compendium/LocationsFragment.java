@@ -1,6 +1,7 @@
 package com.example.compendium;
 
 import static androidx.core.content.ContextCompat.checkSelfPermission;
+import static androidx.core.content.ContextCompat.getSystemService;
 
 import android.Manifest;
 import android.content.Context;
@@ -41,6 +42,10 @@ public class LocationsFragment extends Fragment {
     private LocationManager locationManager;
     private LocationListener locationListener;
 
+    Button showLocationButton;
+
+    private static final int PERMISSION_REQUEST_CODE = 1;
+
     public LocationsFragment() {
     }
 
@@ -74,8 +79,7 @@ public class LocationsFragment extends Fragment {
         locationListener = new LocationListener() {
             @Override
             public void onLocationChanged(Location location) {
-                // obsługa zmiany lokalizacji
-                locationTextView.setText("Szerokość: " + location.getLatitude() + "\nDługość: " + location.getLongitude()+"\nWysokość: "+location.getAltitude());
+                locationTextView.setText("Szerokość: " + location.getLatitude() + "\nDługość: " + location.getLongitude() + "\nWysokość: " + location.getAltitude());
             }
 
             @Override
@@ -94,14 +98,40 @@ public class LocationsFragment extends Fragment {
             }
         };
 
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            if (checkSelfPermission(getContext(),Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-                requestPermissions(new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, 1);
-            } else {
-                locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0, 0, locationListener);
+        showLocationButton = (Button) getView().findViewById(R.id.getLocationButton);
+
+        showLocationButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // Sprawdź, czy masz uprawnienia do dostępu do lokalizacji
+                if (ActivityCompat.checkSelfPermission(getActivity(), Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED
+                        && ActivityCompat.checkSelfPermission(getActivity(), Manifest.permission.ACCESS_COARSE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
+                    // Uzyskaj aktualną lokalizację
+                    locationManager.requestSingleUpdate(LocationManager.GPS_PROVIDER, locationListener, null);
+                } else {
+                    // Poproś użytkownika o udzielenie uprawnień
+                    ActivityCompat.requestPermissions(getActivity(),
+                            new String[]{Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.ACCESS_COARSE_LOCATION},
+                            PERMISSION_REQUEST_CODE);
+                }
             }
-        } else {
-            locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0, 0, locationListener);
+        });
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        if (requestCode == PERMISSION_REQUEST_CODE) {
+            if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                // Uzyskaj aktualną lokalizację
+                if (ActivityCompat.checkSelfPermission(getContext(), Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(getContext(), Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+                    return;
+                }
+                locationManager.requestSingleUpdate(LocationManager.GPS_PROVIDER, locationListener, null);
+            } else {
+                // Obsłuż brak udzielonych uprawnień
+                Toast.makeText(getActivity(), "Brak uprawnień do dostępu do lokalizacji GPS", Toast.LENGTH_SHORT).show();
+            }
         }
     }
 }

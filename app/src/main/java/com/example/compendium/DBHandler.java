@@ -1,5 +1,8 @@
 package com.example.compendium;
 
+import static android.content.Context.MODE_PRIVATE;
+import static android.database.sqlite.SQLiteDatabase.openOrCreateDatabase;
+
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
@@ -32,32 +35,19 @@ public class DBHandler extends SQLiteOpenHelper {
 
         sqLiteDatabase.execSQL("CREATE TABLE characters (id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT, appearanceDesc TEXT, characterDesc TEXT, rank TEXT, conflict_side TEXT)");
 
-//        insertCharacter(sqLiteDatabase,1,"Lin","Wysoki brodacz","Porywczy zabijaka","Kapral","System Główny");
-//        insertCharacter(sqLiteDatabase,2,"Antyvir","Wysoka, długowłosa brunetka","Chłodno myśli, ale jak przyjdzie co do czego to nie zawaha się wziąć za broń","Podchorąży","System Główny");
-//        insertCharacter(sqLiteDatabase,3,"Dos","Zmienia formy po śmierci","Wierny druh, gotowy do poświęceń","Android", "System główny");
-//        insertCharacter(sqLiteDatabase,4, "AISiri", "Zmienia wygląd kiedy ma na to ochotę", "Cichy i tajemniczy", "Wirus", "AISiri");
-
+        sqLiteDatabase.execSQL("INSERT INTO characters VALUES(1,'Lin','Wysoki brodacz','Zabijaka','Kapral','System Główny')");
+        sqLiteDatabase.execSQL("INSERT INTO characters VALUES(2,'Antyvir','Wysoka brunetka','Opanowana','Podchorąży','System Główny')");
+        sqLiteDatabase.execSQL("INSERT INTO characters VALUES(3,'Dos','Robot','Wierny druh','Android','System Główny')");
+        sqLiteDatabase.execSQL("INSERT INTO characters VALUES(4,'AISiri','Zmiennokształtny','Cichy i tajemniczy','Główny Wirus','AISiri')");
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase sqLiteDatabase, int oldVersion, int newVersion) {
-//        sqLiteDatabase.execSQL("DROP TABLE IF EXISTS " + TABLE_NAME);
-//        onCreate(sqLiteDatabase);
-    }
-
-    private static void insertCharacter(SQLiteDatabase db,int id, String name, String appearance, String character, String rank, String conflictSide) {
-        ContentValues newCharacter = new ContentValues();
-        newCharacter.put(ID_COL,id);
-        newCharacter.put(NAME_COL,name);
-        newCharacter.put(APPEARANCE_DESC_COL,appearance);
-        newCharacter.put(CHARACTER_DESC_COL, character);
-        newCharacter.put(RANK_COL,rank);
-        newCharacter.put(CONFLICT_SIDE_COL,conflictSide);
-        db.insert(TABLE_NAME,null,newCharacter);
     }
 
     public ArrayList<BookCharacter> readBookCharacters(){
-        SQLiteDatabase db = this.getReadableDatabase();
+//        SQLiteDatabase db = openOrCreateDatabase("kompendium.db",null);
+        SQLiteDatabase db = getReadableDatabase();
 
         String selectQuery = "SELECT * FROM " + TABLE_NAME;
         Cursor characters = db.rawQuery(selectQuery, null);
